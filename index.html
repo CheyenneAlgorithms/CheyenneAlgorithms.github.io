@@ -1,59 +1,289 @@
-CHEYENNE ALGORITHMS
-	•	MISSION
-	•	PRODUCTS
-	•	ABOUT
-	•	CONTACT
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cheyenne Algorithms LLC — Engineering software with human expertise and AI precision</title>
+  <style>
+    :root {
+      --navy:       #1b2a4a;
+      --royal:      #2c4a8a;
+      --steel:      #4a6fa5;
+      --sky:        #c8d8f0;
+      --off-white:  #f4f6fb;
+      --white:      #ffffff;
+      --ink:        #111827;
+      --mid:        #4b5563;
+      --light-rule: #d1daea;
+      --accent:     #2c7be5;
+      --accent-dim: #1a56b0;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:    'Courier New', Courier, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--off-white); color: var(--ink); line-height: 1.6; }
 
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); border-bottom: 2px solid var(--royal);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 58px;
+    }
+    .nav-brand { font-family: var(--font-mono); font-size: 0.95rem; font-weight: bold; color: var(--sky); letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; color: #a0b4cc; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
 
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, var(--navy) 0%, #1e3461 55%, #2c4a8a 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; padding: 100px 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .orbital { position: absolute; border-radius: 50%; border: 1px solid rgba(200,216,240,0.12); pointer-events: none; }
+    .orbital::after { content: ''; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); top: -3px; left: 50%; transform: translateX(-50%); box-shadow: 0 0 8px 2px rgba(200,216,240,0.6); }
+    .orbital-1 { width: 420px; height: 420px; top: 50%; left: 50%; animation: spin1 32s linear infinite; }
+    .orbital-2 { width: 620px; height: 620px; top: 50%; left: 50%; animation: spin2 48s linear infinite; }
+    .orbital-3 { width: 820px; height: 820px; top: 50%; left: 50%; animation: spin3 64s linear infinite; }
+    @keyframes spin1 { from { transform: translate(-50%,-50%) rotateX(72deg) rotateZ(0deg); } to { transform: translate(-50%,-50%) rotateX(72deg) rotateZ(360deg); } }
+    @keyframes spin2 { from { transform: translate(-50%,-50%) rotateX(72deg) rotateZ(40deg); } to { transform: translate(-50%,-50%) rotateX(72deg) rotateZ(-320deg); } }
+    @keyframes spin3 { from { transform: translate(-50%,-50%) rotateX(72deg) rotateZ(80deg); } to { transform: translate(-50%,-50%) rotateX(72deg) rotateZ(440deg); } }
+    @media (prefers-reduced-motion: reduce) { .orbital { animation: none; } }
 
-CHEYENNE ALGORITHMS LLC  ·  COLORADO SPRINGS, CO
-Engineering software with human expertise and AI precision
-Professional software engineering, amplified by artificial intelligence. Precise tools for demanding applications.
-SEE OUR WORK
-EST. COLORADO SPRINGS · CHEYENNE MOUNTAIN REGION
-MISSION
-Precision engineering. Exactly as intended.
+    .hero-content { position: relative; z-index: 2; max-width: 720px; }
+    .hero-eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.2rem; opacity: 0.85; }
+    .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: normal; color: var(--white); line-height: 1.18; margin-bottom: 1.4rem; }
+    .hero h1 em { font-style: italic; color: var(--sky); }
+    .hero-sub { font-size: 1.05rem; color: #a0b8d4; max-width: 540px; margin: 0 auto 2.4rem; line-height: 1.7; }
+    .hero-cta { display: inline-block; background: var(--accent); color: var(--white); text-decoration: none; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.85rem 2.2rem; transition: background 0.2s; }
+    .hero-cta:hover { background: var(--accent-dim); }
+    .hero-location { margin-top: 3rem; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; color: rgba(160,180,204,0.5); text-transform: uppercase; }
 
-Cheyenne Algorithms builds software where correctness is not negotiable. We combine decades of professional engineering discipline with emerging AI tools — not as a shortcut, but as a force multiplier for experienced judgment.
-ENGINEERING DISCIPLINE
-Grounded in professional software engineering practice. Every system is designed to work exactly as specified, with the rigor that high-stakes applications demand.
-AI AS ACCELERATOR
-Artificial intelligence amplifies experienced engineers — it does not replace them. We apply AI precisely where it adds leverage, guided by human expertise at every decision point.
-TARGETED DELIVERY
-From defense and aerospace tooling to consumer applications, we build software that performs under constraint: tight specs, demanding environments, and real users.
-PRODUCTS
-What we build
+    /* SECTIONS */
+    section { padding: 6rem 2rem; }
+    .inner { max-width: 900px; margin: 0 auto; }
+    .section-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--steel); margin-bottom: 0.8rem; }
+    .section-title { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: normal; color: var(--navy); margin-bottom: 1.4rem; line-height: 1.25; }
+    .rule { width: 48px; height: 2px; background: var(--royal); margin-bottom: 2rem; }
 
-FIRST PRODUCT
-Fascinator
-FIDGET LAB  ·  IOS APP
-A physics-based 3D fidget toy for iOS — built entirely in Swift and Metal, without traditional 3D asset files or game engines. Every object is procedurally generated: geometry, normals, lighting, and physics computed from first principles.
-	•	Real-time 3D rendering via Apple Metal
-	•	15 interactive objects across curated collections
-	•	Physics simulation: angular momentum, damping, quaternion rotation
-	•	Localized in 14 languages
-	•	iOS 17.0 · iPhone & iPad
-Available on the App Store
+    /* MISSION */
+    .mission { background: var(--white); border-top: 3px solid var(--royal); }
+    .mission-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; margin-top: 3rem; }
+    .mission-item { border-top: 1px solid var(--light-rule); padding-top: 1.2rem; }
+    .mission-item h3 { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--royal); margin-bottom: 0.7rem; }
+    .mission-item p { font-size: 0.92rem; color: var(--mid); line-height: 1.65; }
 
-ABOUT
-The engineer behind the algorithms
+    /* PRODUCT */
+    .product { background: var(--off-white); }
+    .product-card { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem; background: var(--white); border: 1px solid var(--light-rule); border-left: 4px solid var(--royal); padding: 3rem; }
+    .product-tag { display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--white); background: var(--royal); padding: 0.25rem 0.7rem; margin-bottom: 1rem; }
+    .product-card h3 { font-family: var(--font-display); font-size: 1.8rem; font-weight: normal; color: var(--navy); margin-bottom: 0.3rem; }
+    .product-subtitle { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--steel); text-transform: uppercase; margin-bottom: 1.2rem; }
+    .product-card p { font-size: 0.95rem; color: var(--mid); line-height: 1.7; margin-bottom: 1.4rem; }
+    .product-specs { list-style: none; margin-bottom: 1.8rem; }
+    .product-specs li { font-family: var(--font-mono); font-size: 0.78rem; color: var(--mid); padding: 0.35rem 0; border-bottom: 1px solid var(--light-rule); letter-spacing: 0.04em; }
+    .product-specs li::before { content: '→ '; color: var(--steel); }
+    .app-store-btn { display: inline-block; background: var(--navy); color: var(--white); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.75rem 1.6rem; transition: background 0.2s; }
+    .app-store-btn:hover { background: var(--royal); }
+    .product-visual { display: flex; align-items: center; justify-content: center; }
+    .spinner-demo { width: 220px; height: 220px; animation: rotateSpin 4s linear infinite; }
+    @keyframes rotateSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .spinner-demo { animation: none; } }
 
-Cheyenne Algorithms LLC is a software engineering company based in Colorado Springs, Colorado — in the shadow of Cheyenne Mountain. Founded by a retired professional software engineer with decades of experience across technical domains.
-The company was built on a precise thesis: AI is an amplifier, not a replacement. An experienced engineer using AI tools can deliver what previously required a team — with the same rigor, the same correctness requirements, and a fraction of the overhead.
-Fascinator: Fidget Lab is the proof. A complete iOS application — real-time 3D physics, Metal GPU rendering, 14-language localization, App Store distribution — built by one engineer, leveraging AI as a coding partner. Every architectural decision was made by a human who knew exactly what to ask, and why.
-Consulting engagements open to defense, aerospace, and business software clients where precision and accountability matter.
-14
-LANGUAGES LOCALIZED
-15
-3D OBJECTS, PROCEDURALLY GENERATED
-1
-ENGINEER. NO TEAM. NO SHORTCUTS.
-iOS
-SWIFT · METAL · SWIFTUI
-CONTACT
-Work with us
+    /* ABOUT */
+    .about { background: var(--navy); color: var(--white); }
+    .about .section-label { color: var(--sky); opacity: 0.7; }
+    .about .section-title { color: var(--white); }
+    .about .rule { background: var(--sky); opacity: 0.4; }
+    .about-body { display: grid; grid-template-columns: 3fr 2fr; gap: 4rem; margin-top: 2rem; }
+    .about-text p { font-size: 1rem; color: #a0b8d4; line-height: 1.8; margin-bottom: 1.2rem; }
+    .about-text p strong { color: var(--white); font-weight: 600; }
+    .about-stats { display: flex; flex-direction: column; gap: 2rem; padding-top: 0.5rem; }
+    .stat { border-top: 1px solid rgba(200,216,240,0.2); padding-top: 1rem; }
+    .stat-number { font-family: var(--font-display); font-size: 2.4rem; color: var(--sky); line-height: 1; margin-bottom: 0.3rem; }
+    .stat-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(160,180,204,0.6); }
 
-Consulting inquiries for defense, aerospace, and business software engineering are welcome. Contact details coming soon.
-Contact inquiries coming soon.
-© 2026 CHEYENNE ALGORITHMS LLC  ·  COLORADO SPRINGS, CO
-	•	Privacy Policy
+    /* CONTACT */
+    .contact { background: var(--white); text-align: center; }
+    .contact .inner { max-width: 560px; }
+    .contact .rule { margin: 0 auto 2rem; }
+    .contact p { font-size: 0.97rem; color: var(--mid); margin-bottom: 2rem; line-height: 1.7; }
+    .contact-note { display: inline-block; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; color: var(--steel); border: 1px solid var(--light-rule); padding: 0.7rem 1.6rem; }
+
+    /* FOOTER */
+    footer { background: var(--navy); border-top: 2px solid var(--royal); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .footer-brand { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; color: rgba(160,180,204,0.55); text-transform: uppercase; }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; }
+    .footer-links a { font-size: 0.78rem; color: rgba(160,180,204,0.55); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sky); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1.2rem; }
+      .mission-grid { grid-template-columns: 1fr; }
+      .product-card { grid-template-columns: 1fr; padding: 2rem; }
+      .product-visual { display: none; }
+      .about-body { grid-template-columns: 1fr; }
+      .about-stats { flex-direction: row; flex-wrap: wrap; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .orbital-2, .orbital-3 { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-brand">Cheyenne Algorithms</a>
+    <ul class="nav-links">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#product">Products</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="orbital orbital-1"></div>
+    <div class="orbital orbital-2"></div>
+    <div class="orbital orbital-3"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Cheyenne Algorithms LLC &nbsp;·&nbsp; Colorado Springs, CO</p>
+      <h1>Engineering software with<br><em>human expertise</em> and AI precision</h1>
+      <p class="hero-sub">Professional software engineering, amplified by artificial intelligence. Precise tools for demanding applications.</p>
+      <a href="#product" class="hero-cta">See Our Work</a>
+      <p class="hero-location">Est. Colorado Springs · Cheyenne Mountain Region</p>
+    </div>
+  </section>
+
+  <section class="mission" id="mission">
+    <div class="inner">
+      <p class="section-label">Mission</p>
+      <h2 class="section-title">Precision engineering.<br>Exactly as intended.</h2>
+      <div class="rule"></div>
+      <p style="max-width:620px; color:var(--mid); font-size:0.97rem; line-height:1.75; margin-bottom:3rem;">
+        Cheyenne Algorithms builds software where correctness is not negotiable. We combine decades of professional engineering discipline with emerging AI tools — not as a shortcut, but as a force multiplier for experienced judgment.
+      </p>
+      <div class="mission-grid">
+        <div class="mission-item">
+          <h3>Engineering Discipline</h3>
+          <p>Grounded in professional software engineering practice. Every system is designed to work exactly as specified, with the rigor that high-stakes applications demand.</p>
+        </div>
+        <div class="mission-item">
+          <h3>AI as Accelerator</h3>
+          <p>Artificial intelligence amplifies experienced engineers — it does not replace them. We apply AI precisely where it adds leverage, guided by human expertise at every decision point.</p>
+        </div>
+        <div class="mission-item">
+          <h3>Targeted Delivery</h3>
+          <p>From defense and aerospace tooling to consumer applications, we build software that performs under constraint: tight specs, demanding environments, and real users.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="product" id="product">
+    <div class="inner">
+      <p class="section-label">Products</p>
+      <h2 class="section-title">What we build</h2>
+      <div class="rule"></div>
+      <div class="product-card">
+        <div>
+          <span class="product-tag">First Product</span>
+          <h3>Fascinator</h3>
+          <p class="product-subtitle">Fidget Lab &nbsp;·&nbsp; iOS App</p>
+          <p>A physics-based 3D fidget toy for iOS — built entirely in Swift and Metal, without traditional 3D asset files or game engines. Every object is procedurally generated: geometry, normals, lighting, and physics computed from first principles.</p>
+          <ul class="product-specs">
+            <li>Real-time 3D rendering via Apple Metal</li>
+            <li>15 interactive objects across curated collections</li>
+            <li>Physics simulation: angular momentum, damping, quaternion rotation</li>
+            <li>Localized in 14 languages</li>
+            <li>iOS 17.0 · iPhone &amp; iPad</li>
+          </ul>
+          <a href="https://apps.apple.com" class="app-store-btn">Available on the App Store</a>
+        </div>
+        <div class="product-visual">
+          <svg class="spinner-demo" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <radialGradient id="hubGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#4a6fa5"/>
+                <stop offset="100%" stop-color="#1b2a4a"/>
+              </radialGradient>
+            </defs>
+            <circle cx="110" cy="42" r="36" fill="#2c4a8a" opacity="0.9"/>
+            <circle cx="172" cy="150" r="36" fill="#2c4a8a" opacity="0.9"/>
+            <circle cx="48" cy="150" r="36" fill="#2c4a8a" opacity="0.9"/>
+            <line x1="110" y1="78" x2="110" y2="110" stroke="#4a6fa5" stroke-width="18" stroke-linecap="round"/>
+            <line x1="148" y1="134" x2="110" y2="110" stroke="#4a6fa5" stroke-width="18" stroke-linecap="round"/>
+            <line x1="72" y1="134" x2="110" y2="110" stroke="#4a6fa5" stroke-width="18" stroke-linecap="round"/>
+            <circle cx="110" cy="110" r="22" fill="url(#hubGrad)"/>
+            <circle cx="110" cy="110" r="10" fill="#c8d8f0" opacity="0.5"/>
+            <circle cx="110" cy="42" r="14" fill="#c8d8f0" opacity="0.2"/>
+            <circle cx="172" cy="150" r="14" fill="#c8d8f0" opacity="0.2"/>
+            <circle cx="48" cy="150" r="14" fill="#c8d8f0" opacity="0.2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="inner">
+      <p class="section-label">About</p>
+      <h2 class="section-title">The engineer behind the algorithms</h2>
+      <div class="rule"></div>
+      <div class="about-body">
+        <div class="about-text">
+          <p><strong>Cheyenne Algorithms LLC</strong> is a software engineering company based in Colorado Springs, Colorado — in the shadow of Cheyenne Mountain. Founded by a retired professional software engineer with decades of experience across technical domains.</p>
+          <p>The company was built on a precise thesis: <strong>AI is an amplifier, not a replacement.</strong> An experienced engineer using AI tools can deliver what previously required a team — with the same rigor, the same correctness requirements, and a fraction of the overhead.</p>
+          <p>Fascinator: Fidget Lab is the proof. A complete iOS application — real-time 3D physics, Metal GPU rendering, 14-language localization, App Store distribution — built by one engineer, leveraging AI as a coding partner. Every architectural decision was made by a human who knew exactly what to ask, and why.</p>
+          <p>Consulting engagements open to defense, aerospace, and business software clients where precision and accountability matter.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-number">14</div>
+            <div class="stat-label">Languages localized</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">15</div>
+            <div class="stat-label">3D objects, procedurally generated</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Engineer. No team. No shortcuts.</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">5,000+</div>
+            <div class="stat-label">Lines of Swift, Metal &amp; shader code</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">iOS</div>
+            <div class="stat-label">Swift · Metal · SwiftUI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Work with us</h2>
+      <div class="rule"></div>
+      <p>Consulting inquiries for defense, aerospace, and business software engineering are welcome. Contact details coming soon.</p>
+      <span class="contact-note">[ Contact inquiries coming soon ]</span>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">&copy; 2026 Cheyenne Algorithms LLC &nbsp;·&nbsp; Colorado Springs, CO</span>
+    <ul class="footer-links">
+      <li><a href="privacy.html">Privacy Policy</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
