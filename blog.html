@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Cheyenne Algorithms LLC</title>
+  <style>
+    :root {
+      --navy:       #1b2a4a;
+      --royal:      #2c4a8a;
+      --steel:      #4a6fa5;
+      --sky:        #c8d8f0;
+      --off-white:  #f4f6fb;
+      --white:      #ffffff;
+      --ink:        #111827;
+      --mid:        #4b5563;
+      --light-rule: #d1daea;
+      --accent:     #2c7be5;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:    'Courier New', Courier, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--off-white); color: var(--ink); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); border-bottom: 2px solid var(--royal);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 58px;
+    }
+    .nav-brand { display: flex; align-items: center; text-decoration: none; }
+    .nav-brand svg { height: 46px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; color: #a0b4cc; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+    /* BLOG HEADER */
+    .blog-header {
+      background: linear-gradient(160deg, var(--navy) 0%, #1e3461 100%);
+      padding: 120px 2rem 60px;
+      text-align: center;
+    }
+    .blog-header .eyebrow { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--sky); opacity: 0.75; margin-bottom: 1rem; }
+    .blog-header h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: normal; color: var(--white); margin-bottom: 0.8rem; }
+    .blog-header p { font-size: 0.95rem; color: #a0b8d4; max-width: 480px; margin: 0 auto; }
+
+    /* BLOG LAYOUT */
+    .blog-body { max-width: 780px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    /* POST CARD — index listing */
+    .post-card {
+      background: var(--white);
+      border: 1px solid var(--light-rule);
+      border-left: 4px solid var(--royal);
+      padding: 2rem 2.5rem;
+      margin-bottom: 2rem;
+    }
+    .post-meta { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--steel); margin-bottom: 0.8rem; }
+    .post-card h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: normal; color: var(--navy); margin-bottom: 0.8rem; line-height: 1.3; }
+    .post-card h2 a { color: inherit; text-decoration: none; }
+    .post-card h2 a:hover { color: var(--royal); }
+    .post-card p { font-size: 0.95rem; color: var(--mid); line-height: 1.75; margin-bottom: 1.2rem; }
+    .read-more { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+    .read-more:hover { color: var(--royal); }
+
+    /* FULL POST */
+    .post-full { background: var(--white); border: 1px solid var(--light-rule); padding: 3rem 3.5rem; }
+    .post-full .post-meta { margin-bottom: 1rem; }
+    .post-full h1 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: normal; color: var(--navy); margin-bottom: 0.5rem; line-height: 1.25; }
+    .post-full .rule { width: 48px; height: 2px; background: var(--royal); margin: 1.5rem 0 2rem; }
+    .post-full p { font-size: 1rem; color: var(--ink); line-height: 1.85; margin-bottom: 1.4rem; }
+    .post-full h2 { font-family: var(--font-display); font-size: 1.25rem; font-weight: normal; color: var(--navy); margin: 2.5rem 0 1rem; }
+    .post-full blockquote { border-left: 3px solid var(--royal); padding: 0.8rem 1.5rem; margin: 1.8rem 0; background: var(--off-white); }
+    .post-full blockquote p { font-style: italic; color: var(--mid); margin: 0; }
+    .back-link { display: inline-block; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--steel); text-decoration: none; margin-bottom: 2rem; }
+    .back-link:hover { color: var(--navy); }
+
+    /* FOOTER */
+    footer { background: var(--navy); border-top: 2px solid var(--royal); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; color: rgba(160,180,204,0.55); text-transform: uppercase; }
+    .footer-social { display: flex; gap: 1.2rem; align-items: center; }
+    .social-icon { color: rgba(160,180,204,0.55); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; }
+    .social-icon:hover { color: #c8d8f0; }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; }
+    .footer-links a { font-size: 0.78rem; color: rgba(160,180,204,0.55); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .footer-links a:hover { color: #c8d8f0; }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1rem; }
+      .post-full { padding: 2rem 1.5rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 110 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cheyenne Algorithms LLC">
+        <rect width="110" height="175" fill="#1b2a4a" stroke="#c8d8f0" stroke-width="4"/>
+        <polygon points="0,175 110,0 0,0" fill="#2c4a8a"/>
+        <line x1="110" y1="0" x2="0" y2="175" stroke="#c8d8f0" stroke-width="2.5" opacity="0.85"/>
+        <path d="M 44,30 C 44,24 40,18 34,18 C 20,18 12,48 12,112 C 12,176 20,206 34,206 C 40,206 44,200 46,193" fill="none" stroke="white" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 82,18 L 62,206" fill="none" stroke="white" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 82,18 L 102,206" fill="none" stroke="white" stroke-width="7" stroke-linecap="round"/>
+        <line x1="68" y1="130" x2="98" y2="130" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#mission">Mission</a></li>
+      <li><a href="index.html#product">Products</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+  </nav>
+
+  <div class="blog-header">
+    <p class="eyebrow">Cheyenne Algorithms LLC</p>
+    <h1>The Blog</h1>
+    <p>Engineering perspective. AI as a tool. Software built to last.</p>
+  </div>
+
+  <div class="blog-body">
+
+    <a href="#post-001" class="back-link" style="display:none">&larr; Back to all posts</a>
+
+    <!-- POST LISTING -->
+    <div class="post-card">
+      <p class="post-meta">June 2026 &nbsp;·&nbsp; Amanda Giarla &nbsp;·&nbsp; Engineering</p>
+      <h2><a href="#post-001">One Engineer. One App. The AI Did Not Write It.</a></h2>
+      <p>A retired professional software engineer walks into the App Store. No team. No game engine. No 3D asset files. Just Swift, Metal, and an AI neural network trained to write code. Here is what actually happened — and what it means for the future of software engineering.</p>
+      <a href="#post-001" class="read-more">Read post &rarr;</a>
+    </div>
+
+    <!-- FULL POST -->
+    <div class="post-full" id="post-001">
+      <a href="#" class="back-link" onclick="window.scrollTo(0,0); return false;">&larr; All posts</a>
+      <p class="post-meta">June 2026 &nbsp;·&nbsp; Amanda Giarla &nbsp;·&nbsp; Engineering</p>
+      <h1>One Engineer. One App. The AI Did Not Write It.</h1>
+      <div class="rule"></div>
+
+      <p>I spent decades as a professional software engineer. I have written code in environments where correctness was not optional — where a wrong answer had consequences. I understand what it means to build something that works exactly as specified.</p>
+
+      <p>When I retired, I decided to build an iOS app. Not because I needed to prove something. Because I had an idea, the skills to execute it, and a new kind of tool I wanted to understand: an AI neural network trained to write code.</p>
+
+      <p>The result is <strong>Fascinator: Fidget Lab</strong> — a physics-based 3D fidget toy for iPhone and iPad, built entirely in Swift and Apple's Metal GPU framework. No traditional 3D asset files. No game engine. Every object — fifteen of them — is procedurally generated from mathematical first principles: geometry, surface normals, lighting, and physics simulation all computed in code. The app is localized in fourteen languages and available on the App Store.</p>
+
+      <p>I built it alone.</p>
+
+      <h2>What the AI actually did</h2>
+
+      <p>Here is what I need to be precise about, because the public conversation around AI and software engineering gets this wrong constantly: the AI did not write the app. I did.</p>
+
+      <p>An AI neural network, used as a coding partner, is exactly that — a partner. It can produce code rapidly. It can suggest implementations, catch syntax errors, and work through boilerplate. What it cannot do is know what to build, why to build it that way, or whether the output is correct for the problem at hand.</p>
+
+      <blockquote>
+        <p>Every architectural decision in Fascinator was made by a human who had the experience to know what to ask — and the judgment to know when the answer was wrong.</p>
+      </blockquote>
+
+      <p>The physics model required understanding quaternion rotation, angular momentum, and damping coefficients. The rendering pipeline required understanding how Metal shaders execute on GPU hardware. The localization architecture required understanding how iOS manages string resources across fourteen language bundles. The AI could help implement each of these once I knew precisely what was needed. It could not determine what was needed.</p>
+
+      <p>This is the distinction that matters: AI amplifies experienced engineers. It does not replace them. An experienced engineer with AI tools can deliver what previously required a team. A novice with AI tools produces something that looks like software until it doesn't work.</p>
+
+      <h2>What this means for software engineering</h2>
+
+      <p>I founded Cheyenne Algorithms LLC on this thesis. The economics of software development are changing — not because AI writes code, but because experienced engineers who know how to direct AI can now operate at a scale that was previously impossible for individuals.</p>
+
+      <p>I am one engineer. I shipped a complete commercial iOS application — real-time 3D physics, GPU rendering, App Store distribution, fourteen languages — on a timeline and budget that would have been unthinkable without AI assistance. The quality and correctness of the result reflect decades of engineering judgment, not the AI's capability.</p>
+
+      <p>For defense, aerospace, and business software clients where precision and accountability matter: this is what AI-assisted engineering actually looks like when done by someone who knows what they are doing.</p>
+
+      <p>The AI is a tool. I am the engineer.</p>
+
+      <p style="font-family:'Courier New',monospace; font-size:0.8rem; color:#4b5563; margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid #d1daea;">— Amanda Giarla &nbsp;·&nbsp; Founder, Cheyenne Algorithms LLC &nbsp;·&nbsp; Colorado Springs, CO</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-brand">&copy; 2026 Cheyenne Algorithms LLC &nbsp;·&nbsp; Colorado Springs, CO</span>
+    <div class="footer-social">
+      <a href="#" class="social-icon" aria-label="Instagram" title="Instagram">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+        </svg>
+      </a>
+      <a href="#" class="social-icon" aria-label="TikTok" title="TikTok">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.28 6.28 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/>
+        </svg>
+      </a>
+      <a href="#" class="social-icon" aria-label="YouTube" title="YouTube">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M23 7s-.3-1.9-1.2-2.7c-1.1-1.2-2.4-1.2-3-1.3C16.6 3 12 3 12 3s-4.6 0-6.8.1c-.6.1-1.9.1-3 1.3C1.3 5.2 1 7 1 7S.7 9.1.7 11.2v2c0 2 .3 4.2.3 4.2s.3 1.9 1.2 2.7c1.1 1.2 2.6 1.1 3.3 1.2C7.2 21.4 12 21.4 12 21.4s4.6 0 6.8-.2c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.7 1.2-2.7s.3-2.1.3-4.2v-2C23.3 9.1 23 7 23 7zM9.7 15.5v-7.3l8.1 3.7-8.1 3.6z"/>
+        </svg>
+      </a>
+      <a href="#" class="social-icon" aria-label="LinkedIn" title="LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+      </a>
+      <a href="#" class="social-icon" aria-label="App Store" title="App Store">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+      </a>
+    </div>
+    <ul class="footer-links">
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="privacy.html">Privacy Policy</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
