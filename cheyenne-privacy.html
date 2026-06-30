@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Cheyenne Algorithms LLC</title>
+  <style>
+    :root {
+      --navy:       #1b2a4a;
+      --royal:      #2c4a8a;
+      --steel:      #4a6fa5;
+      --sky:        #c8d8f0;
+      --off-white:  #f4f6fb;
+      --white:      #ffffff;
+      --ink:        #111827;
+      --mid:        #4b5563;
+      --light-rule: #d1daea;
+      --accent:     #2c7be5;
+      --accent-dim: #1a56b0;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:    'Courier New', Courier, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--off-white); color: var(--ink); line-height: 1.6; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); border-bottom: 2px solid var(--royal);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 58px;
+    }
+    .nav-brand { display: flex; align-items: center; text-decoration: none; }
+    .nav-brand svg { height: 46px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; color: #a0b4cc; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(160deg, var(--navy) 0%, #1e3461 55%, #2c4a8a 100%);
+      padding: 130px 2rem 4rem; text-align: center;
+    }
+    .page-eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sky); margin-bottom: 1.2rem; opacity: 0.85; }
+    .page-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 4vw, 2.8rem); font-weight: normal; color: var(--white); }
+    .page-header .effective-date { margin-top: 0.9rem; font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.1em; color: rgba(200,216,240,0.6); }
+
+    /* CONTENT */
+    .content { background: var(--white); padding: 5rem 2rem; }
+    .inner { max-width: 720px; margin: 0 auto; }
+    .section-label { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--steel); margin-top: 2.6rem; margin-bottom: 0.8rem; }
+    .section-label:first-child { margin-top: 0; }
+    .content p { font-size: 0.97rem; color: var(--mid); line-height: 1.75; margin-bottom: 1rem; }
+    .content a { color: var(--accent); text-decoration: none; }
+    .content a:hover { text-decoration: underline; }
+    .rule { width: 48px; height: 2px; background: var(--royal); margin: 0 auto 0; }
+
+    /* FOOTER */
+    footer { background: var(--navy); border-top: 2px solid var(--royal); padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.12em; color: rgba(160,180,204,0.55); text-transform: uppercase; }
+    .footer-links { display: flex; gap: 1.8rem; list-style: none; }
+    .footer-links a { font-size: 0.78rem; color: rgba(160,180,204,0.55); text-decoration: none; letter-spacing: 0.06em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sky); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 1.2rem; }
+      .nav-links { gap: 1.2rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 110 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cheyenne Algorithms LLC">
+        <rect width="110" height="175" fill="#1b2a4a" stroke="#c8d8f0" stroke-width="4"/>
+        <polygon points="0,175 110,0 0,0" fill="#2c4a8a"/>
+        <line x1="110" y1="0" x2="0" y2="175" stroke="#c8d8f0" stroke-width="2.5" opacity="0.85"/>
+        <path d="M 44,30 C 44,24 40,18 34,18 C 20,18 12,48 12,112 C 12,176 20,206 34,206 C 40,206 44,200 46,193" fill="none" stroke="white" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 82,18 L 62,206" fill="none" stroke="white" stroke-width="7" stroke-linecap="round"/>
+        <path d="M 82,18 L 102,206" fill="none" stroke="white" stroke-width="7" stroke-linecap="round"/>
+        <line x1="68" y1="130" x2="98" y2="130" stroke="white" stroke-width="5.5" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#mission">Mission</a></li>
+      <li><a href="index.html#product">Products</a></li>
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <p class="page-eyebrow">Cheyenne Algorithms LLC</p>
+    <h1>Privacy Policy</h1>
+    <p class="effective-date">Effective: April 2026 &nbsp;·&nbsp; Applies to: cheyennealgorithms.com</p>
+  </header>
+
+  <section class="content">
+    <div class="inner">
+      <p class="section-label">The Short Version</p>
+      <p>This policy covers the Cheyenne Algorithms LLC website — cheyennealgorithms.com and its pages, including this blog. It does not cover our iOS app, Fascinator, which has its own <a href="fascinator-privacy.html">privacy policy</a>.</p>
+
+      <p class="section-label">Data We Collect</p>
+      <p>This website does not currently use analytics, advertising, cookies, or any third-party tracking services. We do not operate a contact form, newsletter signup, or user account system at this time. Standard web server logs maintained by GitHub Pages, our hosting provider, may include basic technical information such as IP address and browser type — this data is governed by GitHub's own privacy practices and is not accessed or used by Cheyenne Algorithms LLC for any purpose.</p>
+
+      <p class="section-label">Email Contact</p>
+      <p>If you email us directly — for support, consulting inquiries, or any other reason — we will have access to your email address and the contents of your message. We use this information solely to respond to you and do not share it with third parties.</p>
+
+      <p class="section-label">Changes to This Policy</p>
+      <p>If we introduce new data collection on this website — such as a contact form, analytics, or mailing list — this policy will be updated first, and the effective date above will reflect the change.</p>
+
+      <p class="section-label">Contact</p>
+      <p>Questions about this policy can be sent to <a href="mailto:support@cheyennealgorithms.com">support@cheyennealgorithms.com</a>.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-brand">&copy; 2026 Cheyenne Algorithms LLC &nbsp;·&nbsp; Colorado Springs, CO</span>
+    <ul class="footer-links">
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="fascinator-privacy.html">Fascinator Privacy</a></li>
+      <li><a href="cheyenne-privacy.html">Website Privacy</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
