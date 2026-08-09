@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support — Fascinator: Fidget Lab</title>
+  <style>
+    :root {
+      --navy:       #1b2a4a;
+      --royal:      #2c4a8a;
+      --steel:      #4a6fa5;
+      --sky:        #c8d8f0;
+      --off-white:  #f4f6fb;
+      --white:      #ffffff;
+      --ink:        #111827;
+      --mid:        #4b5563;
+      --light-rule: #d1daea;
+      --accent:     #2c7be5;
+      --accent-dim: #1a56b0;
+      --font-display: 'Georgia', 'Times New Roman', serif;
+      --font-body:    system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-mono:    'Courier New', Courier, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--off-white); color: var(--ink); line-height: 1.6; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: var(--navy); border-bottom: 2px solid var(--royal);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 58px;
+    }
+    .nav-brand { display: flex; align-items: center; text-decoration: none; }
+    .nav-brand svg { height: 46px; width: auto; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; color: #a0b4cc; text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+
+    .page-header {
+      background: var(--navy);
+      padding: 7rem 2.5rem 3rem;
+      color: var(--white);
+    }
+    .page-header .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--sky);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .page-header h1 {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: normal;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3.5rem 2.5rem 5rem;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--light-rule);
+      border-radius: 8px;
+      padding: 2rem 2.2rem;
+      margin-bottom: 1.75rem;
+    }
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--navy);
+      margin-bottom: 0.9rem;
+    }
+    .card p { color: var(--mid); margin-bottom: 0.75rem; }
+    .card p:last-child { margin-bottom: 0; }
+    .card a { color: var(--accent); text-decoration: none; }
+    .card a:hover { text-decoration: underline; }
+
+    .contact-box {
+      background: var(--off-white);
+      border-left: 3px solid var(--accent);
+      padding: 1.2rem 1.5rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+    }
+    .contact-box a {
+      font-family: var(--font-mono);
+      font-size: 1.05rem;
+      color: var(--accent-dim);
+      font-weight: bold;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #a0b4cc;
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand { font-size: 0.85rem; }
+    .footer-links { display: flex; gap: 1.5rem; list-style: none; }
+    .footer-links a { color: #a0b4cc; text-decoration: none; font-size: 0.85rem; }
+    .footer-links a:hover { color: var(--white); }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .page-header h1 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-brand">
+      <svg viewBox="0 0 110 175" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cheyenne Algorithms LLC">
+        <rect width="110" height="175" fill="#1b2a4a"/>
+        <polygon points="0,175 110,0 0,0" fill="#2c4a8a"/>
+        <line x1="110" y1="0" x2="0" y2="175" stroke="#c8d8f0" stroke-width="1.8" opacity="0.75"/>
+        <path d="M 44,30 C 44,24 40,18 34,18 C 20,18 12,48 12,112 C 12,176 20,206 34,206 C 40,206 44,200 46,193" fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 82,18 L 62,206" fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <path d="M 82,18 L 102,206" fill="none" stroke="white" stroke-width="5" stroke-linecap="round"/>
+        <line x1="68" y1="130" x2="98" y2="130" stroke="white" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <p class="eyebrow">Fascinator: Fidget Lab</p>
+    <h1>Support</h1>
+  </header>
+
+  <main>
+    <div class="card">
+      <h2>Getting Help</h2>
+      <p>If you're running into a problem, have a question about how something works, or just want to share feedback on Fascinator, reach out directly — a real person reads every message.</p>
+      <div class="contact-box">
+        <a href="mailto:support@cheyennealgorithms.com">support@cheyennealgorithms.com</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Restoring Purchases</h2>
+      <p>If you've reinstalled Fascinator or switched to a new device, your unlocked objects and the All Objects bundle can be restored from Settings within the app. Purchases are tied to your Apple ID, not your device.</p>
+    </div>
+
+    <div class="card">
+      <h2>Common Questions</h2>
+      <p><strong>Why won't an object spin the way I expect?</strong><br>
+      Try toggling Axis Lock in the controls panel — locked mode constrains spin to a single plane, while unlocked mode allows free 3D tumbling.</p>
+      <p><strong>Can I use Fascinator on iPad?</strong><br>
+      iPad support isn't available yet, but it's on the roadmap for a future update.</p>
+    </div>
+
+    <div class="card">
+      <h2>Privacy</h2>
+      <p>Fascinator doesn't collect any personal data. Read the full <a href="fascinator-privacy.html">Fascinator Privacy Policy</a> for details.</p>
+    </div>
+  </main>
+
+  <footer>
+    <span class="footer-brand">&copy; 2026 Cheyenne Algorithms LLC &nbsp;·&nbsp; Colorado Springs, CO</span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="fascinator-privacy.html">Fascinator Privacy</a></li>
+      <li><a href="cheyenne-privacy.html">Website Privacy</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
